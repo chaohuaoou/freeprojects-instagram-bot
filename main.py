@@ -1,6 +1,6 @@
 from instagrapi import Client
 from instagrapi.types import StoryMention, StoryMedia, StoryLink, StoryHashtag
-import json, time
+import json, time, random
 
 # Reading the config file and converting it to a dictionary
 config = ""
