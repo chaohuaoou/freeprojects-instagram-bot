@@ -1,6 +1,6 @@
 # freeprojects-instagram-bot
 
-An Instagram bot I made for someone which does something (See README.md :P)
+An Instagram bot I made for someone which does something
 
 What it does
 - Logs into the user account
