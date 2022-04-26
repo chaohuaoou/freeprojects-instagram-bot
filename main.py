@@ -10,16 +10,16 @@ PASSWORD = config['password']
 USERS_TO_SCRAPE = config['usernameToScrape']
 
 def runBot(username, password):
-    if os.name == 'nt': 
-        os.system('cls')
-    else: 
-        os.system('clear')
+    if os.name == 'nt': os.system('cls')
+    else: os.system('clear')
     
     print("Logging into: " + username + "...")
     # Logging into the account using the config
     cl = Client()
     cl.login(username, password)
     print("Logged into: " + username)
+    print("Entering 30 seconds wait")
+    time.sleep(30)
     for user in USERS_TO_SCRAPE:
         print("Scraping User: " + user)
         # Getting the user's info
@@ -40,13 +40,15 @@ def runBot(username, password):
                 # Checking if user is a bot (or a private account)
                 userDict = cl.user_info_by_username(liker.username).dict()
                 if str(userDict['is_private']) == "False" and userDict['profile_pic_url'] != "":
+                    time.sleep(5 + (random.random() * 5))
                     cl.user_follow(userID)
+                    time.sleep(3)
                     userPosts = cl.user_medias(userID, amount=2)
                     for userPost in userPosts:
                         cl.media_like(userPost.id)
+                        time.sleep(5)
                     print("        Followed & Liked: " + str(liker.username))
-                    # Generate a random number between 5 and 10
-                    time.sleep(5 + (random.random() * 5))
+                    time.sleep(15 + (random.random() * 5)) 
                 else:
                     print("        Skipping Bot/Private Account: " + str(liker.username))
     print("FINISHED")
