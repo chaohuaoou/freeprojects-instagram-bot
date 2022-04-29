@@ -2,7 +2,6 @@ from instagrapi import Client
 import json, time, random, os
 
 # Reading the config file and converting it to a dictionary
-config = {}
 with(open("config.json", "r")) as f: config = json.load(f)
 print("Config File Loaded")
 USERNAME = config['username']
