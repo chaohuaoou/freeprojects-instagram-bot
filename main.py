@@ -55,6 +55,8 @@ def userScrapeFollowLike(username, password):
                     time.sleep(25 + (random.random() * 5))
                 else:
                     print("        Skipping Bot/Private Account: " + str(liker.username))
+                    time.sleep(10 + (random.random() * 5))
+
     print("FINISHED")
 
 
