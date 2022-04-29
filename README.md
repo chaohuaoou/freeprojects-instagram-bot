@@ -7,3 +7,4 @@ What it does
 - Gets their 5 latest posts
 - Gets all the users who liked those posts
 - Follows them
+- Likes their 2 latest posts
