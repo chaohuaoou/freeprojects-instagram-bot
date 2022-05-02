@@ -1,7 +1,7 @@
 from instagrapi import Client
 import os, json, time
 
-with(open(os.path.split(os.getcwd())[0] + "config.json", "r")) as f: config = json.load(f)
+with(open("config.json", "r")) as f: config = json.load(f)
 print("Config File Loaded")
 USERNAME = config['username']
 PASSWORD = config['password']
@@ -21,7 +21,7 @@ def unfollow(username: str, password: str):
     clId = cl.user_id_from_username(username)
     follows = cl.user_following(clId)
     # Save all their usernames to a file
-    with(open(os.path.split(os.getcwd())[0] + "/followLogger/follows.txt", "r")) as file:
+    with(open(follows.txt", "r")) as file:
         exceptions = file.readlines
     for value in follows.values(): 
         userID = cl.user_id_from_username(value.username)
