@@ -43,7 +43,7 @@ def userScrapeFollowLike(username, password):
                 userID = cl.user_id_from_username(liker.username)
                 # Checking if user is a bot (or a private account)
                 userDict = cl.user_info_by_username(liker.username).dict()
-                if str(userDict['is_private']) == "False":
+                if userDict['is_private'] == False:
                     time.sleep(5 + (random.random() * 5))
                     cl.user_follow(userID)
                     time.sleep(5 + (random.random() * 5))
@@ -55,6 +55,8 @@ def userScrapeFollowLike(username, password):
                     time.sleep(25 + (random.random() * 5))
                 else:
                     print("        Skipping Bot/Private Account: " + str(liker.username))
+                    time.sleep(10 + (random.random() * 5))
+
     print("FINISHED")
 
 
